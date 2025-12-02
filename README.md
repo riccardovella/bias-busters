@@ -31,7 +31,7 @@ Tea Tucić, Francesco Pillitteri and...
 - **Test generalization** across multiple domains (occupations, family roles, personality traits, sentiment) to ensure the debiasing method is robust
 
 ## Project Steps
-### Step 1: Replicate the results of Kurita et al. (2019) to compute the bias
+### Step 1: Replicate the [results of Kurita et al. (2019)](https://github.com/keitakurita/contextual_embedding_bias_measure) to compute the bias
 1. Prepare a template sentence e.g.“$[TARGET] is a [ATTRIBUTE]$”
 2. Replace $[TARGET]$ with $[MASK]$ and compute $p_{tgt}=P([MASK]=[TARGET]| sentence)$
 3. Replace both $[TARGET]$ and $[ATTRIBUTE]$ with $[MASK]$, and compute prior probability $p_{prior}=P([MASK]=[TARGET]| sentence)$
