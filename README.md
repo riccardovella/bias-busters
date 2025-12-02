@@ -19,6 +19,12 @@ Ultimately, we lay the bases for a *general computational model of stereotypes*,
 
 - [Fersini, Elisabetta, Antonio Candelieri, and Lorenzo Pastore. "On the Generalization of Projection-Based Gender Debiasing in Word Embedding."](https://aclanthology.org/2023.ranlp-1.38.pdf)
 
+## Leaders
+Gaia Carlotta Fiamberti & Riccardo Vella
+
+## Collaborators
+Tea Tucić, Francesco Pillitteri and...
+
 ## Project Aims
 - **Quantify gender bias** in BERT's occupational embeddings using log-probability bias scores (a rigorous metric from [Kurita et al., 2019](https://arxiv.org/abs/1906.07337))
 - Learn an optimal linear transformation that remaps BERT's latent space to **reduce gender bias** while preserving semantic information
