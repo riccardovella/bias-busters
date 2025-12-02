@@ -84,3 +84,35 @@ Measure:
 - Within-domain bias reduction: Does $W$ reduce log-probability bias on held-out occupations?
 - Cross-domain transfer: Does it reduce bias in other gendered contexts?
 - Semantic preservation: Do downstream tasks (e.g., sentence similarity, classification) maintain performance?
+
+## Coding Setup and Installation
+
+The code will be held on the [github repository](https://github.com/riccardovella/bias-busters). In order to interact with it you need to have [git](git-scm.com/install/).
+
+All of the code will be programmed in Python. Using an IDE (e.g. [VSCode](https://code.visualstudio.com/download)) is strongly suggested.
+
+With this setup, installing the project is easy. 
+
+Start by cloning the repository on your local machine.
+```
+git clone https://github.com/riccardovella/bias-busters
+```
+
+Now you need to create the virtual environment. Here I am going to use [uv](https://docs.astral.sh/uv/getting-started/installation/) but you can use any environment manager.
+```
+uv venv .venv
+```
+
+*An environment is a space where you can install all the packages and run your project that is detached from the rest of your local machine. This way we can install the same packages (in the same version) and avoid conflicts.*
+
+It is very important to always **activate the environment!!**
+```
+source .venv/bin/activate
+```
+
+Now we can install all the packages that are needed for our project.
+```
+pip install -r requirements.txt
+```
+
+And we are set :)
