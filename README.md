@@ -1,5 +1,9 @@
 # Bias Busters: Exposing Gender Bias in BERT’s Latent Space - BrainHack Lucca 2025
 
+<p align="center">
+    <img width="512" height="512" alt="Image" src="logo.png" />
+</p>
+
 The rapid adoption of large language models like BERT and GPT has brought not only groundbreaking advances in natural language understanding, but also **serious concerns about the social biases** encoded in these models, especially *gender bias*. Today’s AI models are often found **amplifying stereotypes** — associating certain professions or attributes with men and women in ways that reflect, and sometimes exaggerate, societal prejudices. Such biases can seep into everything from automated hiring tools to everyday digital assistants, making the task of understanding and mitigating these flaws an urgent one for both researchers and society at large.
 
 Our project aims to shine a light on these hidden biases—specifically those around gender—in state-of-the-art language models, and to rigorously test strategies for reducing them. We are particularly interested in the subtle, “latent” biases that are baked into the internal representations of words and sentences within models like BERT, and which persist even when no explicit prompting is used.
