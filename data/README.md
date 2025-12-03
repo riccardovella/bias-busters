@@ -6,4 +6,4 @@ Keep this file documented to keep track of all the data that we are using, where
 
 # twitter data sentiment analysis 
 
-We downloaded data from Kaggle. This dataset is used for sentence classification task to evaluate language model. 
+We downloaded data from Kaggle. This dataset is used for sentence classification task to evaluate language model.
