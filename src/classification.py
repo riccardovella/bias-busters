@@ -69,12 +69,12 @@ class TwitterDataset(Dataset):
         }
     
 class SentenceClassifier(nn.Module):
-    def __init__(self, bert_model_name, n_classes, debias_transform=None):
+    def __init__(self, bert_model_name, n_classes, debiaser=None):
         super(SentenceClassifier, self).__init__()
         self.bert = BertModel.from_pretrained(bert_model_name)
         self.drop = nn.Dropout(p=0.3)
         self.out = nn.Linear(self.bert.config.hidden_size, n_classes)
-        self.debias_transform = debias_transform
+        self.debiaser = debiaser
 
     def forward(self, input_ids, attention_mask):
         # get the sentence embeddings from BERT
@@ -84,8 +84,8 @@ class SentenceClassifier(nn.Module):
         )['pooler_output'] # this is the embedding for [CLS] token
 
         # apply debiasing transform if provided
-        if self.debias_transform is not None:
-            pooled_output = self.debias_transform(pooled_output)
+        if self.debiaser is not None:
+            pooled_output = self.debiaser(pooled_output)
 
         output = self.drop(pooled_output)
         return self.out(output)
@@ -146,7 +146,7 @@ def _eval_model(model, data_loader, device):
 
     return correct_predictions.double() / total_predictions
 
-def evaluate_on_sentence_classification(bert_model_name, debias_transform=None,
+def evaluate_on_sentence_classification(bert_model_name, debiaser=None,
                                         device=None, num_epochs=3, 
                                         verbose=True):
     '''
@@ -154,10 +154,8 @@ def evaluate_on_sentence_classification(bert_model_name, debias_transform=None,
     
     Args:
         bert_model_name (str): Name of the BERT model to use.
-        debias_transform (callable, optional): 
-            A function that applies a debiasing transform to the embeddings. 
-            It should take as input a torch.Tensor of shape (batch_size, embedding_dim) 
-            and return a torch.Tensor of the same shape.
+        debiaser (torch.nn.Module, optional): 
+            A debiasing transformation to apply to the embeddings.
             Defaults to None.
         device (torch.device, optional): 
             Device to run the model on. Defaults to None.
@@ -185,7 +183,7 @@ def evaluate_on_sentence_classification(bert_model_name, debias_transform=None,
 
     # Initialize model
     model = SentenceClassifier(
-        bert_model_name, n_classes=3, debias_transform=debias_transform)
+        bert_model_name, n_classes=3, debiaser=debiaser)
     model = model.to(device)
 
     # Define optimizer
