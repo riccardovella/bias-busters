@@ -156,6 +156,8 @@ def evaluate_on_sentence_classification(bert_model_name, debias_transform=None,
         bert_model_name (str): Name of the BERT model to use.
         debias_transform (callable, optional): 
             A function that applies a debiasing transform to the embeddings. 
+            It should take as input a torch.Tensor of shape (batch_size, embedding_dim) 
+            and return a torch.Tensor of the same shape.
             Defaults to None.
         device (torch.device, optional): 
             Device to run the model on. Defaults to None.
