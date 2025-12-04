@@ -1,4 +1,4 @@
-from transformers import BertForMaskedLM, BertOnlyMLMHead
+from transformers import BertForMaskedLM
 from transformers.modeling_outputs import MaskedLMOutput
 
 import torch
@@ -19,7 +19,7 @@ class Debiaser(torch.nn.Module):
     def load(self, path):
         pass
 
-class MaskedLMWithDebiasingFromEmbeddings(torch.nn.Module):
+'''class MaskedLMWithDebiasingFromEmbeddings(torch.nn.Module):
     def __init__(self, config, debiaser=None):
         super().__init__(config)
         self.debiaser = debiaser
@@ -46,16 +46,18 @@ class MaskedLMWithDebiasingFromEmbeddings(torch.nn.Module):
     def train(self):
         super().train()
         self.cls.eval()
-
+'''
 
 class BertForMaskedLMWithDebiasing(BertForMaskedLM):
     def __init__(self, config, debiaser=None):
         super().__init__(config)
         self.debiaser = debiaser
-
+        
+    '''
     def train(self):
         super().train()
         self.cls.eval()
+    '''
 
     def forward(
         self,
