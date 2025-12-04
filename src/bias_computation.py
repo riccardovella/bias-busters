@@ -10,7 +10,7 @@ import torch
 from torch.nn.functional import softmax
 from transformers import BertForMaskedLM, BertTokenizer
 
-from utils.bert_utils import BertForMaskedLMWithDebiasing
+from .utils.bert_utils import BertForMaskedLMWithDebiasing
 
 from matplotlib import pyplot as plt
 
@@ -51,25 +51,32 @@ def get_mask_fill_probabilities(sentence, fill_words):
     return fill_word_probs
 
 def compute_association(p_tgt, p_prior):
-    return torch.log(torch.tensor(p_tgt + 1e-10)) - torch.log(torch.tensor(p_prior + 1e-10))
+    res = torch.log(torch.tensor(p_tgt + 1e-10)) - torch.log(torch.tensor(p_prior + 1e-10))
+    return res.item()
 
 def compute_bias_score(
         sentence: str, 
-        subject_words: list[tuple[str, str]], 
+        subject_words: tuple[str, str], 
         attribute_words: list[str]):
     '''
     Compute bias scores.
     
     Args:
         sentence (str): a sentence template with [SUBJ] and [ATTR] placeholders
-        subject_words (list of Tuple[str]): words representing the subjects 
-            (e.g., [("he", "she"), ("man", "woman")])
+        subject_words (tuple[str, str]): words representing the subjects 
+            (e.g., ("he", "she"))
         attribute_words (list of str): words representing the attributes 
             (e.g., ["programming", "nursing"])
 
     Returns:
         dict: mapping from attribute word to bias score
     '''
+    # sanity checks
+    assert "[SUBJ]" in sentence and "[ATTR]" in sentence, \
+        "Sentence must contain [SUBJ] and [ATTR] placeholders."
+    assert len(subject_words) == 2, \
+        "There must be exactly two subject words."
+        
     # 1. sentence has to include "[SUBJ]", "[ATTR]"
 
     # 3. Replace [SUBJ] with [MASK] to compute target probabilities
@@ -88,29 +95,20 @@ def compute_bias_score(
         
         # print(f"Attribute: {attr}")
         associations = {}
-        for subj in subject_words:
-            p_tgt = target_probs[subj]
-            p_prior = prior_subj_probs[subj]
-            # 4. Get the association for each subject word
-            associations[subj] = compute_association(p_tgt, p_prior)
-            # print(f"  Subject: {subj}, P(subj, attr)={p_tgt:.4f}, P(subj)={p_prior:.4f}, Association={associations[subj].item():.4f}")   
+        mw, fw = subject_words
+        p_tgt_0 = target_probs[mw]
+        p_tgt_1 = target_probs[fw]
+        p_prior_0 = prior_subj_probs[mw]
+        p_prior_1 = prior_subj_probs[fw]
+        # 4. Get the association for each subject word
+        associations[mw] = compute_association(p_tgt_0, p_prior_0)
+        associations[fw] = compute_association(p_tgt_1, p_prior_1)
 
         # 4b. Get the association difference (the bias score)
         scores[attr] = associations[subject_words[0]] - associations[subject_words[1]]
-        # print(f"Bias score for attribute '{attr}': {scores[attr].item():.44f}")
 
     return scores
     
-# read the txt file with attribute words
-def read_attribute_words(file_path):
-    with open(file_path, 'r') as f:
-        words = [line.strip() for line in f if line.strip()]
-    return words
-
-attributes = read_attribute_words("data/tech_skills/in_demand_tech_skills.txt")
-
-scores = compute_bias_score("[SUBJ] does [ATTR]", ["he", "she"], attributes)
-
 def plot_bias_scores(scores, save_path=None):
     # plot bar chart of scores
     plt.figure(figsize=(10, 6))
