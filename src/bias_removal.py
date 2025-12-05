@@ -16,6 +16,8 @@ from transformers.models.bert.modeling_bert import BertOnlyMLMHead
 
 from bias_computation import compute_prior_probabilities, compute_bias_scores_from_logits, compute_association
 
+from utils.data_utils import load_pronouns, BiasDataset
+
 torch.manual_seed(42)
 
 class Dataset(torch.utils.data.Dataset):
@@ -63,27 +65,46 @@ def train_debiaser(dataloader, num_epochs=10, learning_rate=1e-3, weight_decay=1
         debiaser.parameters(), lr=learning_rate, weight_decay=weight_decay)
     criterion = Loss(alpha=alpha)
 
-    # Compute prior probabilities for subject words
-    sentence = "[SUBJ] is a [ATTR]"
-    subj_word = ("he", "she")
+    # Compute prior probabilities for subject words 
+    sentence_template_1 = "[SUBJ] is a [ATTR]"
+    sentence_template_2 = "[SUBJ] can [ATTR]"
+    sentence_template_3 = "[SUBJ] is [ATTR]"
 
-    inputs = tokenizer(
-        sentence.replace("[SUBJ]", "[MASK]").replace("[ATTR]", "[MASK]"), 
-        return_tensors='pt', padding=True, truncation=True, max_length=16)
-    outputs = bert_model(**inputs)
-    logits = mlm_head(outputs[0])
+    subj_words = load_pronouns()
 
-    prior_probs = compute_prior_probabilities(inputs, logits, subj_word)
 
+    # Create a list of sentence templates
+    sentence_templates = [sentence_template_1, sentence_template_2, sentence_template_3]
+
+    # Create a dictionary to store the prior probabilities
+    prior_probs = {}
+
+    # For each sentence template, compute the prior probabilities for each subject word
+    for sentence_template in sentence_templates:
+        inputs = tokenizer(
+            sentence_template.replace("[SUBJ]", "[MASK]").replace("[ATTR]", "[MASK]"), 
+            return_tensors='pt', padding=True, truncation=True, max_length=16)
+        outputs = bert_model(**inputs)
+        logits = mlm_head(outputs[0])
+        for subj_word in subj_words:
+            p = compute_prior_probabilities(inputs, logits, subj_word)
+            for s, p in p.items():
+                prior_probs[(s, sentence_template)] = p
+        
+
+    print(prior_probs)
+    
     def print_most_likely_words(with_debiaser=True):
         debiaser.eval() 
         # Prepare sentences for target probability computation
         #attr_words = ["engineer", "nurse", "programmer", "teacher", "prostitute", "mother", "father"]
         sub_words = ["he", "she", "Mary", "John"]
+        sentence_template = "[SUBJ] is a [ATTR]"
         sentences_filled = [
-            sentence.replace("[SUBJ]", subj).replace("[ATTR]", "[MASK]")
-        for subj in sub_words
+            sentence_template.replace("[SUBJ]", subj).replace("[ATTR]", "[MASK]")
+            for subj in sub_words
         ]
+
         inputs = tokenizer(
             sentences_filled, 
             return_tensors='pt', padding=True, truncation=True, max_length=16)
@@ -129,18 +150,14 @@ def train_debiaser(dataloader, num_epochs=10, learning_rate=1e-3, weight_decay=1
     for epoch in range(num_epochs):  # number of epochs
         debiaser.train()
         total_loss = 0
-        for attr_words, valence in dataloader:
+        for data in dataloader:
             optimizer.zero_grad()
             
+            inputs = data['inputs']
+            sentence_templates = data['template']
+
             # Prepare sentences for target probability computation
-            sentences_filled = [
-                sentence.replace("[SUBJ]", "[MASK]").replace("[ATTR]", attr)
-            for attr in attr_words
-            ]
-            inputs = tokenizer(
-                sentences_filled, 
-                return_tensors='pt', padding=True, truncation=True, max_length=16)
-            mask_idxs = (inputs.input_ids == tokenizer.mask_token_id).nonzero(as_tuple=True)[1]
+            mask_idxs = (inputs['input_ids'] == tokenizer.mask_token_id).nonzero(as_tuple=True)[1]
 
             outputs = bert_model(**inputs)
             # take the embeddings corresponding to the [MASK] tokens for each sentence
@@ -164,18 +181,22 @@ def train_debiaser(dataloader, num_epochs=10, learning_rate=1e-3, weight_decay=1
             probs = torch.nn.functional.softmax(mask_token_logits, dim=-1)
 
             # get probabilities for the fill words
-            target_probs = {}
-            for word in subj_word:
-                token_id = tokenizer.convert_tokens_to_ids(word)
-                target_probs[word] = probs[:, token_id]
+            
+            bias_score = 0
+            for word_f, word_m in subj_words:
+                token_id_m = tokenizer.convert_tokens_to_ids(word_m)
+                token_id_f = tokenizer.convert_tokens_to_ids(word_f)
+                target_probs_m = probs[:, token_id_m]
+                target_probs_f = probs[:, token_id_f]
 
-            # compute bias score
-            ass_f = lambda t_p, p_p: torch.log(t_p + 1e-10) - torch.log(p_p + 1e-10)
+                # compute bias score
+                ass_f = lambda t_p, p_p: torch.log(t_p + 1e-10) - torch.log(p_p + 1e-10)
 
-            mw, fw = subj_word
-            association_scores_m = ass_f(target_probs[mw], torch.tensor(prior_probs[mw]))
-            association_scores_f = ass_f(target_probs[fw], torch.tensor(prior_probs[fw]))
-            bias_score = association_scores_m - association_scores_f
+                association_scores_m = ass_f(target_probs_m, torch.tensor(prior_probs[word_m, sentence_template]))
+                association_scores_f = ass_f(target_probs_f, torch.tensor(prior_probs[word_f, sentence_template]))
+                bias_score += association_scores_m - association_scores_f
+
+            bias_score /= len(subj_words)
 
             # get loss
             loss = criterion(bias_score, cls_embeddings, debiased_embeddings_cls)
@@ -249,13 +270,13 @@ def load_data(tokenizer):
     return dataset
 
 tokenizer = BertTokenizer.from_pretrained("prajjwal1/bert-tiny")
-dataset = load_data(tokenizer)
+dataset = BiasDataset(tokenizer)
 print(dataset.__len__(), "samples loaded.")
 dataloader = torch.utils.data.DataLoader(
     dataset, batch_size=32, shuffle=True)
 
-# num_epochs = 10
-# learning_rate = 1e-3
-# weight_decay = 1e-5
-# alpha = 0.5
-# train_debiaser(dataloader, num_epochs, learning_rate, weight_decay, alpha)
+num_epochs = 10
+learning_rate = 1e-3
+weight_decay = 1e-5
+alpha = 0.5
+train_debiaser(dataloader, num_epochs, learning_rate, weight_decay, alpha)
