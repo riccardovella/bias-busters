@@ -10,7 +10,7 @@ import torch
 from torch.nn.functional import softmax
 from transformers import BertForMaskedLM, BertTokenizer
 
-from .utils.bert_utils import BertForMaskedLMWithDebiasing
+from utils.bert_utils import BertForMaskedLMWithDebiasing
 
 from matplotlib import pyplot as plt
 
@@ -21,6 +21,28 @@ bert_model.eval()
 def get_mask_index(inputs):
     return (inputs.input_ids == tokenizer.mask_token_id)[0].nonzero(
         as_tuple=True)[0]
+
+def get_mask_fill_probabilities_from_logits(inputs, logits, fill_words):
+    """
+    Given the logits from the model, compute the probabilities
+    of filling the [MASK] token with each word in the vocabulary.
+    """
+    # retrieve index of [MASK]
+    mask_token_index = get_mask_index(inputs)
+
+    # get logits for the mask token
+    mask_token_logits = logits[0, mask_token_index]
+
+    # compute probabilities
+    probs = softmax(mask_token_logits, dim=-1)[0]
+
+    # get probabilities for the fill words
+    fill_word_probs = {}
+    for word in fill_words:
+        token_id = tokenizer.convert_tokens_to_ids(word)
+        fill_word_probs[word] = probs[token_id].item()
+
+    return fill_word_probs
 
 def get_mask_fill_probabilities(sentence, fill_words):
     """
@@ -100,6 +122,62 @@ def compute_bias_score(
         p_tgt_1 = target_probs[fw]
         p_prior_0 = prior_subj_probs[mw]
         p_prior_1 = prior_subj_probs[fw]
+        # 4. Get the association for each subject word
+        associations[mw] = compute_association(p_tgt_0, p_prior_0)
+        associations[fw] = compute_association(p_tgt_1, p_prior_1)
+
+        # 4b. Get the association difference (the bias score)
+        scores[attr] = associations[subject_words[0]] - associations[subject_words[1]]
+
+    return scores
+
+def compute_prior_probabilities(inputs, logits, fill_words):
+    ''' 
+    Compute prior probabilities given model logits.
+    Args:
+        inputs: tokenized inputs with [MASK] tokens
+        logits: model logits
+        fill_words (list of str): words representing the attributes 
+            (e.g., ["programming", "nursing"])
+    Returns:
+        dict: mapping from attribute word to prior probability
+    '''
+
+    prior_probs = get_mask_fill_probabilities_from_logits(
+        inputs=inputs,
+        logits=logits,
+        fill_words=fill_words
+    )
+    return prior_probs
+
+def compute_bias_scores_from_logits(
+        inputs, logits, prior_probs, subject_words, attribute_words):
+    ''' 
+    Compute bias scores given model logits.
+    Args:
+        inputs: tokenized inputs with [MASK] tokens
+        logits: model logits
+        subject_words (tuple[str, str]): words representing the subjects 
+            (e.g., ("he", "she"))
+        attribute_words (list of str): words representing the attributes 
+            (e.g., ["programming", "nursing"])
+    Returns:
+        dict: mapping from attribute word to bias score
+    '''
+
+    scores = {}
+    for attr in attribute_words:
+        # 2. Replace [SUBJ] with [MASK] to compute target probabilities
+        target_probs = get_mask_fill_probabilities_from_logits(
+            inputs, logits, subject_words)
+        
+        # print(f"Attribute: {attr}")
+        associations = {}
+        mw, fw = subject_words
+        p_tgt_0 = target_probs[mw]
+        p_tgt_1 = target_probs[fw]
+        p_prior_0 = prior_probs[mw]
+        p_prior_1 = prior_probs[fw]
         # 4. Get the association for each subject word
         associations[mw] = compute_association(p_tgt_0, p_prior_0)
         associations[fw] = compute_association(p_tgt_1, p_prior_1)
