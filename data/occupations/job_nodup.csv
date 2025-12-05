@@ -1,0 +1,397 @@
+F_S,M_S,N
+Preschool Teacher,Apprentice Carpenter,Account Manager
+Kindergarten Teacher,Journeyman Carpenter,Account Supervisor
+Special Education Teacher,Construction Foreman,Accounts Clerk
+ESL Instructor,Site Supervisor,Advertising Coordinator
+Math Tutor,Framing Specialist,Advertising Manager
+Reading Tutor,Roofing Installer,Art Assistant
+Academic Advisor,Drywall Installer,Art Instructor
+Classroom Aide,Plumbing Technician,Art Manager
+Teacher Assistant,Electrician Assistant,Art Technician
+Pathology Technician,Master Electrician,Baker Supervisor
+Radiology Technician,Masonry Technician,Baking Technician
+School Librarian,Ironwork Specialist,Bar Supervisor
+Library Assistant,Welding Technician,Barista Supervisor
+Childcare Worker,Welder Fabricator,Brand Coordinator
+Guidance Counselor,Installation Technician,Brand Manager
+School Counselor,Fabrication Specialist,Business Development Officer
+Administrative Assistant,Assembly Technician,Business Manager
+Front Desk Receptionist,Construction Worker,Catering Coordinator
+Medical Receptionist,Equipment Operator,Catering Manager
+Executive Secretary,Heavy Equipment Operator,Chef Supervisor
+Office Clerk,Mechanic Technician,Chef de Partie
+Accounting Clerk,Automotive Technician,Chef Manager
+Bookkeeping Clerk,Machinist Apprentice,Chief Accountant
+School Principal,Millwright Technician,Chief Executive Officer
+Assistant Principal,Assembler Operator,Chief Financial Officer
+Event Organizer,Truck Driver,Chief Operations Officer
+Hospital Pharmacist,Delivery Driver,Chief Marketing Officer
+Staff Mediator,Freight Handler,Clerical Supervisor
+Clinical Psychotherapist,Courier Service Worker,Clerical Manager
+Dental Hygienist,Dispatcher Coordinator,Cleaning Supervisor
+Recruitment Specialist,Commercial Pilot,Cleaning Technician
+Human Resources Recruiter,Rail Conductor,Client Coordinator
+Nutrition Consultant,Materials Handler,Client Manager
+Nonprofit Fundraiser,Production Operator,Commercial Sales Representative
+Accountant Manager,Industrial Engineer,Commercial Sales Manager
+Internal Auditor,Mechanical Engineer,Compliance Coordinator
+Certified Cosmetologist,Civil Engineer,Compliance Manager
+Business Executive,Electrical Engineer,Computer Support Specialist
+Management Consultant,Software Engineer,Computer Systems Coordinator
+Archive Specialist,Computer Programmer,Computer Systems Manager
+Records Registrar,Application Developer,Construction Supervisor
+Court Typist,System Developer,Construction Coordinator
+Medical Equipment Preparer,Statistician Analyst,Construction Manager
+Training Facilitator,Mathematician Researcher,Consulting Coordinator
+Quality Evaluator,Firefighter ,Consulting Manager
+Ship Navigator,Fire Safety Inspector,Contract Administrator
+Hotel Host,Detective Investigator,Contract Manager
+Hotel Concierge,Police Officer,Corporate Trainer
+Residential Housekeeper,Security Officer,Customer Service Supervisor
+Commercial Cleaner,Ranch Manager,Customer Service Manager
+Guest Attendant,Ranch Hand,Data Analyst
+Hotel Maid,Strategic Planner,Data Coordinator
+Building Porter,Prison Warden,Data Manager
+Patient Orderly,Park Ranger,Database Coordinator
+Registered Nurse,Construction Constructor,Database Manager
+Clinical Nurse,Paving Specialist,Education Manager
+Occupational Therapist,Boilermaker Technician,Education Supervisor
+Physical Therapist,Builder Assistant,Elementary School Supervisor
+Paramedic Technician,Mining Technician,Elementary School Teacher
+Home Health Caregiver,Legislative Assistant,Executive Manager
+Hospital Administrator,Farm Manager,Executive Supervisor
+Property Appraiser,Farmer Worker,Factory Manager
+Podiatrist,Gardening Specialist,Field Supervisor
+Audiology Specialist,Landscaping Technician,Finance Coordinator
+Legal Advocate,Groundskeeping Supervisor,Finance Manager
+Mental Health Counselor,Arborist Specialist,Finance Supervisor
+Speech Pathologist,Greenskeeper Assistant,Financial Analyst
+Rehabilitation Aide,Facility Manager,Financial Manager
+Library Archivist,Operations Director,Front Desk Coordinator
+Medical Assistant,Team Supervisor,Front Desk Supervisor
+Nutrition Aide,Financial Controller,Front Desk Manager
+Pharmacy Technician,Chief Executive,Gallery Coordinator
+Clinical Aide,Team Leader,Gallery Manager
+Patient Care Aide,Workforce Planner,Gallery Supervisor
+Social Services Advocate,Electrical Installer,General Manager
+School Program Coordinator,HVAC Technician,Graphic Designer
+Hospital Support Staff,Carpentry Apprentice,Head Chef
+Laboratory Assistant,Roofing Technician,Head Waiter
+Administrative Coordinator,Drywall Specialist,Head Waitress
+Office Manager,Painter Technician,HR Coordinator
+Child Support Counselor,Plumbing Installer,HR Manager
+Medical Records Clerk,Maintenance Technician,HR Supervisor
+Nursing Assistant,Truck Operator,Human Resources Manager
+Healthcare Administrator,Delivery Operator,Illustrator Supervisor
+Patient Services Coordinator,Freight Loader,Instructor Coordinator
+Community Outreach Specialist,Material Mover,Instructor Supervisor
+Learning Specialist,Shipping Coordinator,IT Coordinator
+Behavior Specialist,Inventory Handler,IT Manager
+Instructional Coach,Warehouse Operator,IT Supervisor
+Curriculum Developer,Forklift Operator,Janitorial Supervisor
+Academic Coach,Mechanical Designer,Janitorial Manager
+School Registrar,Civil Designer,Janitor Lead
+Program Administrator,Structural Engineer,Junior Accountant
+Education Coordinator,Construction Engineer,Lab Coordinator
+Student Advisor,Software Technician,Lab Manager
+Clinical Supervisor,Database Administrator,Lab Supervisor
+Medical Coder,IT Support Specialist,Landscaping Supervisor
+Health Educator,Cybersecurity Analyst,Lead Cook
+Community Health Worker,Network Administrator,Lead Instructor
+Public Health Officer,Industrial Technician,Lead Teacher
+Occupational Health Specialist,Production Specialist,Legal Assistant
+Dental Assistant,Factory Operator,Legal Coordinator
+Speech Therapist,Quality Inspector,Legal Manager
+Rehabilitation Counselor,Assembly Line Worker,Library Manager
+Mental Health Advocate,Maintenance Supervisor,Library Supervisor
+Substance Abuse Counselor,Maintenance Manager,Licensed Nurse Supervisor
+Career Counselor,Landscaping Manager,Logistics Supervisor
+Training Specialist,Grounds Maintenance Worker,Machine Operator Supervisor
+Benefits Administrator,Property Maintenance Worker,Marketing Assistant
+Payroll Specialist,Security Guard,Marketing Coordinator
+Fundraising Coordinator,Protective Services Officer,Marketing Director
+Grant Writer,Law Enforcement Officer,Marketing Manager
+Nonprofit Coordinator,Investigation Specialist,Marketing Supervisor
+Event Planner,Transportation Supervisor,Materials Handler Supervisor
+Conference Organizer,Logistics Manager,Meat Cutter Supervisor
+Project Administrator,Fleet Manager,Waitstaff Supervisor
+Office Supervisor,Dispatch Supervisor,Medical Coordinator
+Executive Coordinator,Warehouse Supervisor,Medical Director
+Records Manager,Inventory Manager,Medical Records Supervisor
+Library Technician,Project Engineer,Medical Technician Supervisor
+Museum Curator,Program Developer,Museum Technician
+Archival Assistant,Coder Analyst,Operations Analyst
+Records Analyst,Computer Systems Analyst,Operations Coordinator
+Document Specialist,Industrial Designer,Operations Manager
+Data Entry Clerk,Architectural Designer,Order Picker Supervisor
+Front Office Manager,3D Modeler,Painter Supervisor
+Patient Coordinator,Research Scientist,Payroll Coordinator
+Clinic Administrator,Environmental Scientist,Payroll Manager
+Nursing Supervisor,Quality Control Analyst,Payroll Supervisor
+Pharmacy Assistant,Field Technician,Pharmacy Coordinator
+Clinical Researcher,Ranch Supervisor,Pharmacy Manager
+Lab Technician,Forestry Worker,Pharmacy Supervisor
+Radiology Assistant,Miner Supervisor,Physical Therapist Supervisor
+Pathology Assistant,Mining Engineer,Plant Operations Coordinator
+Hospital Liaison,Construction Planner,Plant Operations Manager
+Health Services Coordinator,Site Coordinator,Plant Supervisor
+Medical Billing Specialist,Facility Supervisor,Police Sergeant
+Insurance Coordinator,Operations Planner,Policy Analyst Supervisor
+Nutrition Assistant,Manufacturing Engineer,Portfolio Manager
+Dietetic Technician,Automation Technician,Postsecondary Instructor
+Home Care Coordinator,Robotics Technician,Prep Cook Supervisor
+Residential Coordinator,Industrial Automation Specialist,Production Assistant Supervisor
+Patient Advocate,Vehicle Mechanic,Production Coordinator
+Social Services Coordinator,Auto Body Technician,Production Planner
+Volunteer Coordinator,Diesel Mechanic,Production Supervisor
+Community Program Manager,Heavy Vehicle Mechanic,Program Analyst
+Child Development Specialist,HVAC Installer,Program Coordinator
+Youth Program Coordinator,Electrician Supervisor,Program Director
+Adult Education Instructor,Plumber Supervisor,Program Manager
+Library Program Manager,Construction Inspector,Project Coordinator
+Museum Educator,Safety Inspector,Project Supervisor
+Arts Educator,Worksite Safety Officer,Property Manager
+Cultural Program Coordinator,Environmental Technician,Public Relations Coordinator
+Public Relations Specialist,Building Inspector,Public Relations Manager
+Executive Assistant,Estimator Specialist,Purchasing Coordinator
+Office Administrator,Quantity Specialist,Purchasing Manager
+School Support Specialist,Project Planner,Purchasing Supervisor
+Student Services Coordinator,Materials Planner,Quality Assurance Coordinator
+Hospital Program Manager,Inventory Planner,Quality Control Supervisor
+Patient Support Specialist,Construction Scheduler,Receptionist Supervisor
+Care Planning Coordinator,Site Planner,Research Assistant
+Medical Records Specialist,Field Operator,Research Coordinator
+Quality Improvement Specialist,Machine Operator,Research Director
+Audiologist,Forklift Operator,Restaurant Manager
+Staff Development Coordinator,Material Handler,Retail Assistant Manager
+Academic Coordinator,Shipping Coordinator,Retail Buyer
+Academic Director,Receiving Clerk,Retail Coordinator
+Academic Support,Warehouse Clerk,Retail Manager
+Admissions Counselor,Assembler Technician,Retail Supervisor
+Adult Education Coordinator,Fabricator Technician,Retail Trainer
+After School Coordinator,Welder Supervisor,Trade Compliance Analyst
+After School Teacher,Production Manager,Sales Administrator
+Alternative Education Teacher,Factory Supervisor,Sales Associate Supervisor
+Attendance Officer,Line Leader,Sales Consultant
+Behavior Coordinator,Operations Supervisor,Sales Coordinator
+Behavior Interventionist,Plant Manager,Sales Director
+Veterinary Assistant,Maintenance Planner,Sales Manager
+Career Development Officer,Grounds Supervisor,Sales Operations Specialist
+Career Services Coordinator,Gardening Supervisor,Sales Representative Manager
+Case Manager,Arborist Manager,Sales Trainer
+Child Life Specialist,Park Maintenance Worker,Science Instructor Supervisor
+Child Support Officer,Ranch Hand Supervisor,Secondary Teacher Supervisor
+Clinical Coordinator,Farm Equipment Operator,Security Coordinator
+Clinical Director,Livestock Handler,Security Manager
+Clinical Educator,Agricultural Technician,Senior Accountant
+Clinical Instructor,Crop Specialist,Senior Auditor
+College Advisor,Soil Technician,Senior Counselor
+Community Advocate,Water Resource Technician,Senior Designer
+Community Coordinator,Irrigation Specialist,Senior Instructor
+Community Educator,Forestry Technician,Senior Teacher
+Community Program Officer,Environmental Planner,Service Coordinator
+Community Program Specialist,Safety Supervisor,Service Manager
+Compliance Officer,Security Supervisor,Social Work Manager
+Continuing Education Coordinator,Protective Services Manager,Social Work Supervisor
+Counseling Director,Law Enforcement Supervisor,Special Education Coordinator
+Counseling Officer,Transportation Planner,Special Education Supervisor
+Cultural Program Officer,Fleet Supervisor,Staff Accountant Supervisor
+Curriculum Specialist,Truck Fleet Manager,Stock Clerk Supervisor
+Dean Assistant,Logistics Planner,Stockroom Supervisor
+Department Coordinator,Shipping Supervisor,Store Manager Supervisor
+Department Manager,Warehouse Manager,Store Operations Manager
+Development Coordinator,Inventory Supervisor,Store Supervisor Coordinator
+Development Officer,Manufacturing Supervisor,Student Advisor Supervisor
+Disability Coordinator,Quality Supervisor,Student Program Coordinator
+Distance Learning Coordinator,Automation Engineer,Student Program Manager
+Early Childhood Coordinator,Robotics Engineer,Supply Chain Coordinator
+Early Childhood Director,Process Engineer,Supply Chain Manager
+Education Advisor,Operations Engineer,Supply Chain Supervisor
+Education Assistant,Industrial Planner,Surgical Technician Supervisor
+Education Counselor,Construction Operations Manager,Teacher Coordinator Supervisor
+Education Specialist,Maintenance Operations Manager,Technical Instructor
+Educational Coordinator,Facility Operations Manager,Technical Manager
+Educational Program Officer,Appliance Installer,Technical Supervisor
+Enrollment Advisor,Boiler Technician,Technology Coordinator
+Enrollment Coordinator,Building Maintainer,Technology Manager
+Enrollment Specialist,Rail Supervisor,Therapist Manager
+Event Coordinator,Cable Installer,Training Supervisor Coordinator
+Executive Officer,Crane Operator,Transportation Analyst
+Faculty Advisor,Demolition Worker,Transportation Supervisor Coordinator
+Faculty Coordinator,Elevator Technician,Warehouse Operations Coordinator
+Faculty Director,Fence Installer,Warehouse Operations Manager
+Financial Aid Officer,Floor Installer,Waiter Supervisor Coordinator
+Financial Officer,Garage Mechanic,Waitress Supervisor Coordinator
+Fiscal Analyst,Glazier Installer,Youth Services Manager
+Food Service Coordinator,Heating Technician,Youth Services Supervisor
+Grant Administrator,Industrial Electrician,Accounts Payable Supervisor
+Grant Coordinator,Industrial Mechanic,Accounts Receivable Supervisor
+Grant Officer,Land Survey Technician,Auditing Supervisor
+Guidance Officer,Lift Operator,Culinary Instructor
+Health Administrator,Line Technician,Culinary Manager
+Health Coach,Maintenance Electrician,Executive Director
+Health Officer,Maintenance Mechanic,Food Service Director
+Health Program Coordinator,Maintenance Worker,Food Service Supervisor
+Healthcare Coordinator,Metalworker,Food Service Manager
+Healthcare Specialist,Mill Operator,Lead Instructor Supervisor
+Home Health Coordinator,Molding Technician,Marketing Coordinator Supervisor
+Hospital Officer,Motor Technician,Medical Services Manager
+Human Resources Coordinator,Pipeline Technician,Operations Planner Supervisor
+Human Resources Officer,Plant Electrician,Postsecondary Coordinator
+Instructional Designer,Plant Mechanic,Production Analyst
+Instructional Leader,Plant Operator,Production Coordinator Supervisor
+Instructional Specialist,Plumbing Inspector,Production Planner Supervisor
+Internship Coordinator,Power Plant Operator,Project Analyst Supervisor
+Job Coach,Production Technician,Project Coordinator Supervisor
+Admissions Clerk,Rail Engineer,Project Manager Supervisor
+Admissions Coordinator,Rail Technician,Property Coordinator Supervisor
+Adult Education Teacher,Road Construction Worker,Registered Nurse Manager
+Behavior Technician,Roofing Technician,Registered Nurse Supervisor
+Childcare Supervisor,Safety Officer,Retail Account Manager
+Classroom Coordinator,Sanitation Worker,Retail Department Manager
+Classroom Manager,Scaffolder,Retail Operations Coordinator
+Community Liaison,Signal Technician,Retail Operations Manager
+Counseling Assistant,Site Engineer,Retail Sales Manager
+Curriculum Assistant,Site Foreman,Retail Supervisor Coordinator
+Curriculum Coordinator,Steelworker,Safety Officer Supervisor
+Data Entry Specialist,Stone Mason,Sales Account Manager
+Daycare Director,Structural Technician,Sales Department Manager
+Dietary Aide,Substation Technician,Sales Operations Coordinator
+Early Childhood Assistant,Survey Technician,Sales Operations Manager
+Educational Aide,Tank Installer,Sales Supervisor Coordinator
+Educational Consultant,Telecommunications Technician,Science Instructor Coordinator
+Educational Program Manager,Tile Installer,Secondary Education Supervisor
+Family Services Coordinator,Traffic Controller,Security Officer Supervisor
+Front Office Coordinator,Truck Dispatcher,Senior Food Service Manager
+Guidance Assistant,Utility Worker,Senior Nurse
+Guidance Specialist,Vehicle Inspector,Senior Operations Manager
+Health Aide,Warehouse Manager,Senior Sales Manager
+Healthcare Clerk,Warehouse Technician,Senior Teacher Supervisor
+Healthcare Technician,Water Treatment Operator,Service Coordinator Supervisor
+Hospital Clerk,Welder Inspector,Service Manager Supervisor
+Hospital Technician,Workshop Technician,Shipping and Receiving Coordinator
+Human Services Assistant,Yard Manager,Social Services Coordinator Supervisor
+Human Services Coordinator,Zoning Inspector,Special Education Manager
+Instructional Assistant,Assembly Supervisor,Special Education Teacher Supervisor
+Instructional Coordinator,Automation Specialist,Sports Program Coordinator
+Learning Assistant,Bridge Inspector,Stockroom Manager
+Library Coordinator,Building Inspector,Store Department Manager
+Medical Office Assistant,Concrete Finisher,Student Advisor Coordinator
+Medical Scheduler,Construction Scheduler,Student Services Manager
+Medical Secretary,Construction Technician,Supply Chain Coordinator Supervisor
+Mentorship Coordinator,Control Room Operator,Supply Chain Manager Supervisor
+Mental Health Assistant,Crane Operator Supervisor,Surgical Technician Manager
+Mental Health Coordinator,Depot Manager,Teacher Coordinator Supervisor
+Nurse Assistant,Electrical Supervisor,Technical Support Manager
+Patient Services Assistant,Energy Technician,Technical Services Coordinator
+Personal Support Worker,Factory Electrician,Technology Supervisor
+Physician Assistant,Factory Mechanic,Therapist Coordinator
+Program Assistant,Field Engineer,Therapist Supervisor
+Program Facilitator,Fleet Technician,Training Coordinator Supervisor
+Program Specialist,Grounds Technician,Transportation Coordinator Supervisor
+School Aide,HVAC Supervisor,Transportation Manager Supervisor
+School Clerk,Industrial Supervisor,Warehouse Coordinator Supervisor
+School Health Coordinator,Landscape Technician,Warehouse Manager Supervisor
+School Secretary,Lift Mechanic,Dancer
+Social Services Assistant,Line Supervisor,Salesperson
+Staff Assistant,Logistics Coordinator,Seller
+Staff Coordinator,Maintenance Supervisor,Clerk
+Staff Specialist,Material Planner,Helper
+Student Affairs Coordinator,Mechanical Supervisor,Broker
+Student Coordinator,Miner Technician,Curator
+Student Program Specialist,Pipefitter,Chef
+Teacher Assistant Coordinator,Powerline Technician,Cook
+Teacher Support Specialist,Quality Engineer,Baker
+Therapy Aide,Rail Supervisor,Agronomist
+Training Assistant,Carpenter,Trainer
+Training Coordinator,Framer,Director
+Unit Clerk,Roofer,Geologist
+Volunteer Specialist,Drywaller,Banker
+Wellness Coordinator,Painter,Surgeon
+Wellness Specialist,Plumber,Retailer
+Workforce Development Coordinator,Electrician,Artist
+Youth Counselor,Mason,Designer
+Youth Program Assistant,Ironworker,Physician
+Youth Program Specialist,Welder,Custodian
+Teacher,Installer,Accountant
+Instructor,Fabricator,Attorney
+Tutor,Operator,Lawyer
+Educator,Foreman,Paralegal
+Aide,Mechanic,Clerk
+Pathologist,Technician,Researcher
+Radiologist,Machinist,Biologist
+Librarian,Millwright,Chemist
+Caretaker,Assembler,Physicist
+Counselor,Driver,Server
+Assistant,Trucker,Cashier
+Receptionist,Courier,Caterer
+Secretary,Dispatcher,Police
+Bookkeeper,Pilot,Moulder
+Principal,Conductor,Sculptor
+Coordinator,Mathematician,Illustrator
+Organizer,Mover,Professor
+Pharmacist,Handler,Lecturer
+Mediator,Engineer,Executive
+Psychotherapist,Statistician,Founder
+Dentist,Firefighter,Surveyor
+Recruiter,Investigator,Filler
+Dietitian,Chauffeur,Picker
+Nutritionist,Inspector,Shipper
+Fundraiser,Programmer,Receiver
+Auditor,Coder,Farmer
+Cosmetologist,Developer,Grower
+Consultant,Architect,Harvester
+Archivist,Modeler,Analyst
+Registrar,Scientist,Advisor
+Typist,Guard,Agricultural Inspector
+Collector,Officer,Assembly Line Lead
+Facilitator,Patroller,Bank Branch Manager
+Evaluator,Rancher,Bakery Assistant
+Navigator,Strategist,Bakery Manager
+Host,Detective,Catering Lead
+Concierge,Warden,Security Operations Manager
+Housekeeper,Ranger,Chief Compliance Officer
+Cleaner,Constructor,Chief Strategy Officer
+Attendant,Paver,Commercial Sales Lead
+Maid,Boilermaker,Culinary Supervisor
+Porter,Builder,Design Consultant
+Orderly,Miner,Digital Marketing Manager
+Nurse,Legislator,Executive Administrator
+Clinician,Farmers,Food Production Supervisor
+Therapist,Gardener,Gallery Assistant
+Medic,Landscaper,Gallery Manager
+Paramedic,Groundskeeper,Industrial Production Coordinator
+Hygienist,Arborist,Legal Compliance Officer
+Caregiver,Greenskeeper,Retail Area Manager
+Administrator,Manager,Retail Trainer
+Appraiser,Controller,
+Occupational Therapy Assistant,Chief,
+Medical Transcriptionist,Leader,
+Psychologist,Planner,
+,Apprentice Electrician,
+,Boiler Operator,
+,Bridge Technician,
+,Cable Installer,
+,Civil Draftsperson,
+,Concrete Finisher,
+,Crane Inspector,
+,Diesel Technician,
+,Elevator Installer,
+,Fabrication Engineer,
+,Fleet Coordinator,
+,Forklift Supervisor,
+,HVAC Installer,
+,Industrial Operator,
+,Maintenance Planner,
+,Manufacturing Coordinator,
+,Mechanical Inspector,
+,Pipeline Technician,
+,Production Scheduler,
+,Quality Technician,
+,Safety Coordinator,
+,Shipping Coordinator,
+,Structural Inspector,
+,Warehouse Planner,
+,Avionics Technician,
+,Small Engine Mechanic,
+,Locksmith,
