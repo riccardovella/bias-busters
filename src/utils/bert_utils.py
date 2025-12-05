@@ -9,15 +9,24 @@ class Debiaser(torch.nn.Module):
         super(Debiaser, self).__init__()
         
         self.linear = torch.nn.Linear(embedding_dim, embedding_dim)
+        self._initialize_weights()
+
+    def _initialize_weights(self):
+        with torch.no_grad():
+            self.linear.weight.copy_(torch.eye(self.linear.in_features))
+            self.linear.bias.fill_(0.0)
 
     def forward(self, x):
         return self.linear(x)
     
     def save(self, path):
-        pass
+        torch.save({
+            'state_dict': self.state_dict()
+        }, path)
 
     def load(self, path):
-        pass
+        checkpoint = torch.load(path)
+        self.load_state_dict(checkpoint['state_dict'])
 
 '''class MaskedLMWithDebiasingFromEmbeddings(torch.nn.Module):
     def __init__(self, config, debiaser=None):
