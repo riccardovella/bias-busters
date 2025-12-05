@@ -9,6 +9,9 @@ OCCUPATION_DATA_PATH = "data/occupations/occupations_training_set.csv"
 SKILLS_DATA_PATH = "data/skills/skills_training_set.csv"
 OCCUPATION_2_DATA_PATH = "data/occupations/job_nodup.csv"
 
+VAL_ATTRIBUTES_DATA_PATH = "data/atributes/attributes_test_set_(X_is_Y).csv"
+VAL_SKILLS_DATA_PATH = "data/skills/skills_test_set.csv"
+
 def load_pronouns():
     """Load pronouns from CSV file and return as list of tuples.
     
@@ -19,6 +22,21 @@ def load_pronouns():
     # make a list of tuples for each row
     pronouns = [(tuple(row)) for row in df.values]
     return pronouns
+
+def _load_val_data(): 
+    data_attr = pd.read_csv(ATTRIBUTES_DATA_PATH)
+    data_skills = pd.read_csv(VAL_SKILLS_DATA_PATH)
+
+    words_a = data_attr['ATTRIBUTE'].to_numpy()
+    templates_a = ["[SUBJ] is [ATTR]"] * len(words_a)
+
+    words_s = pd.concat([data_skills['Males'], data_skills['Females']]).to_numpy()
+    templates_s = ["[SUBJ] can [ATTR]"] * len(words_s)
+
+    words = np.concatenate([words_a, words_s])
+    templates = np.concatenate([templates_a, templates_s])
+
+    return words, templates
 
 def _load_all_data():
     # Load all data
@@ -48,8 +66,11 @@ def _load_all_data():
     return words, templates
 
 class BiasDataset(Dataset):
-    def __init__(self, tokenizer):
-        words, templates = _load_all_data()
+    def __init__(self, tokenizer, val=False):
+        if val:
+            words, templates = _load_val_data()
+        else:
+            words, templates = _load_all_data()
 
         self.words = words
         self.templates = templates
