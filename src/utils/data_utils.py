@@ -71,7 +71,7 @@ class BiasDataset(Dataset):
             truncation=True, 
             max_length=16)
         return {
-            'input_ids': inputs['input_ids'],
+            'inputs': inputs,
             'words': self.words[idx],
             'template': self.templates[idx],
         }
