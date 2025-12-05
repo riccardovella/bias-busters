@@ -56,7 +56,7 @@ class BiasDataset(Dataset):
 
         # construct sentence from template and word
         sentences = [
-                template.replace("[ATTR]", word) 
+                template.replace("[ATTR]", word).replace("[SUBJ]", "[MASK]") 
             for template, word in zip(self.templates, self.words)]
         # tokenize sentences
         self.inputs = tokenizer(
