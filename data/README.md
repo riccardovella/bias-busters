@@ -13,3 +13,5 @@ Keep this file documented to keep track of all the data that we are using, where
 | **attributes_training_set_(X_is_Y)** | Dataset of a 1000 words used for training the model. Partly taken from paper, rest generated with AI.| [Kurita et al., 2019](https://github.com/keitakurita/contextual_embedding_bias_measure/blob/master/notebooks/data/in_demand_tech_skills) |
 | **pronouns_ethnical_bias** | Dataset is list of pronouns used as targets for the other domain testing. Generated with AI. | |
 | **skills_test_set** | Dataset of a 84 skills used for testing the model. Taken from datasets and further generated with AI | [onetcenter Technology skills](https://www.onetcenter.org/dictionary/30.0/excel/technology_skills.html), [onetcenterSkills](https://www.onetcenter.org/dictionary/30.0/excel/skills.html) | 
+| job_nodup.csv| Dataset of occupations labled as male, female or neutral. Generated with AI | |
+| occupations_training_set.csv | Dataset containing list of occupations |  |
