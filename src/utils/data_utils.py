@@ -53,25 +53,25 @@ class BiasDataset(Dataset):
 
         self.words = words
         self.templates = templates
-        self.tokenizer = tokenizer
+
+        # construct sentence from template and word
+        sentences = [
+                template.replace("[ATTR]", word) 
+            for template, word in zip(self.templates, self.words)]
+        # tokenize sentences
+        self.inputs = tokenizer(
+            sentences,    
+            return_tensors='pt', 
+            padding=True, 
+            truncation=True, 
+            max_length=16)
 
     def __len__(self):
         return self.words.shape[0]
 
     def __getitem__(self, idx):
-        # construct sentence from template and word
-        self.sentences = [
-                template.replace("[ATTR]", word) 
-            for template, word in zip(self.templates, self.words)]
-        # tokenize sentence
-        inputs = self.tokenizer(
-            self.sentences[idx],    
-            return_tensors='pt', 
-            padding=True, 
-            truncation=True, 
-            max_length=16)
         return {
-            'inputs': inputs,
+            'inputs': {key: val[idx] for key, val in self.inputs.items()},
             'words': self.words[idx],
             'template': self.templates[idx],
         }
