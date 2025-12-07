@@ -23,7 +23,7 @@ Ultimately, we lay the bases for a *general computational model of stereotypes*,
 Gaia Carlotta Fiamberti & Riccardo Vella
 
 ## Collaborators
-Tea Tucić, Francesco Pillitteri and...
+Tea Tucić, Francesco Pillitteri, Liber Dorizzi, Edasu Güvenç and Emilia Anna Rynkiewicz
 
 ## Project Aims
 - **Quantify gender bias** in BERT's occupational embeddings using log-probability bias scores (a rigorous metric from [Kurita et al., 2019](https://arxiv.org/abs/1906.07337))
